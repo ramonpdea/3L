@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 mx-auto">
+                    <!--este es un grupo-->
+                    <div class="input-group input-group-sm my-5">
+                        <label class="input-group-text">Escoge</label>
+                        <select id="selector" class="form-select">
+                            <option value="vsp">Vista</option>
+                            <option value="mtp">Montepiedra</option>
+                            <option value="hsp">Horizonte</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chart_div"></div>
+
+        <script type="text/javascript">
+            google.charts.load("current", { packages: ["orgchart"] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            const selector = document.getElementById("selector");
+            const seleccion = document.getElementById("seleccion");
+            var seleccionado;
+            selector.onchange = function () {
+                seleccionado = selector.value;
+                console.log(seleccionado);
+            };
+
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn("string", "Name");
+                data.addColumn("string", "Manager");
+                data.addColumn("string", "ToolTip");
+                // For each orgchart box, provide the name, manager, and tooltip to show.
+                data.addRows([
+                    ["arevalo parada ariel alejandro - supervisor terminaciones - 800163", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["bravo -  - 0", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["opazo beltran bernardo eliecer - supervisor terminaciones - 1024139", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["pacheco balcazar fabian eduardo - supervisor de post venta - 998027", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["perez kuschel maria fernanda - coordinador recursos humanos - 941293", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["salgado crisostomo diego ignacio - profesional de oficina técnica - 900001", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["zurita gutierrez bastian ricardo - encargado de bodega - 636678", "yañez casanova fernando antonio - jefe de obra y post venta - 2246465", ""],
+                    ["obando  coloma rene ignacio - asistente de servicio al cliente - 184117", "placencia palma felipe andres - encargado de servicio al cliente - 872776", ""],
+                    ["pindave pindave corina andrea - asistente de servicio al cliente - 600001", "placencia palma felipe andres - encargado de servicio al cliente - 872776", ""],
+                    ["luengo pinto jaime alejandro - maestro carpintero - 951707", "pacheco balcazar fabian eduardo - supervisor de post venta - 998027", ""],
+                    ["alarcon espinoza juan miguel - maestro pintor - 755142", "pacheco balcazar fabian eduardo - supervisor de post venta - 998027", ""],
+                    ["muñoz arias judith ines - jornal llavero - 272072", "pacheco balcazar fabian eduardo - supervisor de post venta - 998027", ""],
+                    ["placencia palma felipe andres - encargado de servicio al cliente - 872776", "josé poblete", ""],
+                    ["yañez casanova fernando antonio - jefe de obra y post venta - 2246465", "josé poblete", ""],
+                    ["alvarez caceres carlos del carmen - maestro carpintero - 853618", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["aviles ponce ramon roberto - maestro albañil - 826359", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["becerra sanhueza abraham isaac - maestro pintor - 593441", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["becerra sanhueza agustin alexis - maestro pintor - 640767", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["bello machuca florentina del carmen - jornal aseo - 303198", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["bello machuca gloria ines - jornal aseo - 90207", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["camposano cuevas christian alejandro - maestro pintor - 26756", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["castro figueroa juana elena - jornal junior - 475444", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["chavez mora pedro juan - maestro andamiero - 557501", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["encina cisternas eduardo luis - jornal varios - 425000", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["fernandez muñoz cristina natalia - jornal aseo - 367285", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["guzman gallegos genesis estefania - jornal aseo - 607948", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["illesca cabezas cesar rodrigo - maestro mantención - 650072", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["jofre figueroa karina alejandra - jornal aseo - 105000", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["lagos jara jenny isabel - jornal aseo - 425055", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["mellado lara german alberto - jornal sellador - 489951", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["muñoz carrasco angela jovanna - jornal llavero - 516760", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["oliveros salgado camila fernanda - jornal aseo - 401369", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["ortiz rodriguez manuel jesus - maestro carpintero - 729908", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["pacheco gutierrez betzabeth joanna - jornal aseo - 225001", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["perez salas patricia soledad - jornal aseo - 295877", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["pindave pindave olivia pamela - jornal aseo - 355761", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["retamal contreras katherine jesenia - jornal sellador - 186883", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["salazar medina esberto ruben - maestro gasfiter - 701460", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["toloza torneria paula alejandra - jornal aseo - 320019", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["valdebenito ortiz aladino aurelio - jornal varios - 414828", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["valenzuela soto bairon jesus - maestro carpintero - 756595", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["velozo vidal victor manuel - jornal varios - 490783", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                    ["vergara toloza juan jose - maestro carpintero - 708679", "arevalo parada ariel alejandro - supervisor terminaciones - 800163", ""],
+                ]);
+
+                // Create the chart.
+                var chart = new google.visualization.OrgChart(document.getElementById("chart_div"));
+                // Draw the chart, setting the allowHtml option to true for the tooltips.
+                chart.draw(data, { allowHtml: true }, { allowCollapse: true }, { color: "#FFFFFF" }, { size: "small" });
+            }
+        </script>
+    </body>
+</html>

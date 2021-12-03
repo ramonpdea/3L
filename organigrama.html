@@ -21,6 +21,7 @@
                             <option value="vsp">Vista</option>
                             <option value="mtp">Montepiedra</option>
                             <option value="hsp">Horizonte</option>
+                            <option value="ciclos">Ciclos</option>
                         </select>
                     </div>
                 </div>
@@ -38,8 +39,49 @@
             //Cada vez que se elige un elemento de la lista desplegable se evalúa qué organigrama graficar
             proyecto.onchange = function () {
                 seleccionado = proyecto.value;
+                //Se muestra solo el caso de Ciclos
+                if (seleccionado === "ciclos")
+                {
+                    var data = new google.visualization.DataTable();
+                    data.addColumn("string", "Name"); //Nombre, cargo y sueldo líquido del trabajador
+                    data.addColumn("string", "Manager"); //Jefatura directa
+                    data.addColumn("string", "ToolTip"); //No utilizado
+                    // Para cada trabajador, bloque dentro del organigrama, indicar los datos del trabajador, su jefatura y tooltip.
+                    data.addRows([
+                        ['Salinas, Rodrigo - Subgerente de operaciones - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Grob, Andreas - Coordinar técnico de proyectos - ', 'Mejías, Guillermo - Jefe de proyectos - ',''],
+                        ['Mejías, Guillermo - Jefe de proyectos - ', 'Löwener, Andrés - Gerente inmobiliario - ',''],
+                        ['Stanley, Francisco - Subgerente de desarrollo - ', 'Löwener, Andrés - Gerente inmobiliario - ',''],
+                        ['Pabla, Amanda - Coordinar de proyectos - ', 'Mejías, Guillermo - Jefe de proyectos - ',''],
+                        ['Poblete, José - Subgerente comercial - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Leiva, Katherine - Coordinadora comercial - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Löwener, Sebastián - Subgerente comercial - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Carrasco, Carlos - Jefe de contabilidad - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Carlos, Henry - Jefe de contabilidad - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Pardo, Gabriela - Tesorera - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Villanueva, Paulina - Jefe de recursos humanos - ', 'Löwener, Nicolás  - Gerente general - ',''],
+                        ['Labarca, Claudia - Analista contable - ', 'Carrasco, Carlos - Jefe de contabilidad - ',''],
+                        ['Contreras, Valentina - Coordinadora de operaciones comerciales - ', 'Salinas, Rodrigo - Subgerente de operaciones - ',''],
+                        ['Martínez, María Francisca - Ejecutiva de operaciones comerciales - ', 'Salinas, Rodrigo - Subgerente de operaciones - ',''],
+                        ['Aprile, Rosanna - Encargada de operaciones - ', 'Salinas, Rodrigo - Subgerente de operaciones - ',''],
+                        ['Díaz, Alejandra - Analista contable - ', 'Carlos, Henry - Jefe de contabilidad - ',''],
+                        ['Sagardia, Mario - Analista contable - ', 'Carrasco, Carlos - Jefe de contabilidad - ',''],
+                        ['Currihual, Tania - Analista contable - ', 'Carrasco, Carlos - Jefe de contabilidad - ',''],
+                        ['Olguín, Kimberly - Analista contable - ', 'Carlos, Henry - Jefe de contabilidad - ',''],
+                        ['Antimán, Tamara - Asistente tesorería - ', 'Pardo, Gabriela - Tesorera - ',''],
+                        ['Herrera, Valeria - Asistente tesorería - ', 'Pardo, Gabriela - Tesorera - ',''],
+                        ['Gutiérrez, Carolina - Encargada de recursos humanos - ', 'Villanueva, Paulina - Jefe de recursos humanos - ',''],
+                        ['Löwener, Nicolás  - Gerente general - ', '',''],
+                        ['Löwener, Andrés - Gerente inmobiliario - ', 'Löwener, Nicolás  - Gerente general - ','']
+                    ]);
+
+                    // Create the chart.
+                    var chart = new google.visualization.OrgChart(document.getElementById("chart_div"));
+                    // Draw the chart, setting the allowHtml option to true for the tooltips.
+                    chart.draw(data, { allowHtml: true }, { allowCollapse: true }, { color: "#FFFFFF" }, { size: "small" });
+                }
                 //Se muestra solo el caso de Vista
-                if (seleccionado === "vsp") {
+                else if (seleccionado === "vsp") {
                     var data = new google.visualization.DataTable();
                     data.addColumn("string", "Name"); //Nombre, cargo y sueldo líquido del trabajador
                     data.addColumn("string", "Manager"); //Jefatura directa

@@ -4,61 +4,49 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-9 mx-auto">
-                    <!--este es un grupo-->
-                    <div class="input-group input-group-sm my-5">
-                        <label class="input-group-text">Escoge</label>
-                        <select id="selector" class="form-select">
-                            <option value="vsp">Vista</option>
-                            <option value="mtp">Montepiedra</option>
-                            <option value="hsp">Horizonte</option>
-                        </select>
-                    </div>
+             <div class="row">
+                 <div class="col-sm-9 mx-auto">
+                     <!--este es un grupo-->
+                     <div class="input-group input-group-sm my-5">
+                         <label class="input-group-text">Escoge el proyecto </label>
+                         <select id="proyecto" class="form-select">
+                              <option value="vsp">Vista</option>
+                              <option value="mtp">Montepiedra</option>
+                             <option value="hsp">Horizonte</option>
+                         </select>
+                     </div>
                 </div>
             </div>
         </div>
-        <div id="chart_div"></div>
-
+         <div id="chart_div"></div>
+ 
         <script type="text/javascript">
             google.charts.load("current", { packages: ["orgchart"] });
             google.charts.setOnLoadCallback(drawChart);
 
-            const selector = document.getElementById("selector");
-            const seleccion = document.getElementById("seleccion");
+            const proyecto = document.getElementById("proyecto");
             var seleccionado;
-            selector.onchange = function () {
-                seleccionado = selector.value;
+            proyecto.onchange = function () {
+                seleccionado = proyecto.value;
                 console.log(seleccionado);
             };
-
-            function drawChart() {
-                var data = new google.visualization.DataTable();
-                data.addColumn("string", "Name");
-                data.addColumn("string", "Manager");
-                data.addColumn("string", "ToolTip");
-                // For each orgchart box, provide the name, manager, and tooltip to show.
-                data.addRows([
-                   ['AREVALO, ARIEL - supervisor terminaciones - 800163', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['BRAVO, TAMARA -  - 0', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['OPAZO, BERNARDO - supervisor terminaciones - 1024139', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['PACHECO, FABIAN - supervisor de post venta - 998027', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['PEREZ, MARIA - coordinador recursos humanos - 941293', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['SALGADO, DIEGO - profesional de oficina técnica - 900001', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['ZURITA, BASTIAN - encargado de bodega - 636678', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
-['PLACENCIA, FELIPE - encargado de servicio al cliente - 872776', 'POBLETE, JOSÉ',''],
-['YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465', 'POBLETE, JOSÉ',''],
-['OBANDO, RENE - asistente de servicio al cliente - 184117', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
-['PINDAVE, CORINA - asistente de servicio al cliente - 600001', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
-['ALARCON, JUAN - maestro pintor - 755142', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
-['LUENGO, JAIME - maestro carpintero - 951707', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
-['MUÑOZ, JUDITH - jornal llavero - 272072', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
+            //Para cada proyecto que se arme un organigrama diferente
+                function drawChart() {
+                    var data = new google.visualization.DataTable();
+                    data.addColumn("string", "Name");
+                    data.addColumn("string", "Manager");
+                    data.addColumn("string", "ToolTip");
+                    // For each orgchart box, provide the name, manager, and tooltip to show.
+                    data.addRows([
+                      ['ALARCON, JUAN - maestro pintor - 755142', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
 ['ALVAREZ, CARLOS - maestro carpintero - 853618', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['AREVALO, ARIEL - supervisor terminaciones - 800163', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['AVILES, RAMON - maestro albañil - 826359', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['BECERRA, ABRAHAM - maestro pintor - 593441', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['BECERRA, AGUSTIN - maestro pintor - 640767', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['BELLO, FLORENTINA - jornal aseo - 303198', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['BELLO, GLORIA - jornal aseo - 90207', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['BRAVO, TAMARA -  - 0', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['CAMPOSANO, CHRISTIAN - maestro pintor - 26756', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['CASTRO, JUANA - jornal junior - 475444', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['CHAVEZ, PEDRO - maestro andamiero - 557501', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
@@ -68,27 +56,104 @@
 ['ILLESCA, CESAR - maestro mantención - 650072', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['JOFRE, KARINA - jornal aseo - 105000', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['LAGOS, JENNY - jornal aseo - 425055', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['LUENGO, JAIME - maestro carpintero - 951707', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
 ['MELLADO, GERMAN - jornal sellador - 489951', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['MUÑOZ, JUDITH - jornal llavero - 272072', 'PACHECO, FABIAN - supervisor de post venta - 998027',''],
 ['MUÑOZ, ANGELA - jornal llavero - 516760', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['OBANDO, RENE - asistente de servicio al cliente - 184117', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
 ['OLIVEROS, CAMILA - jornal aseo - 401369', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['OPAZO, BERNARDO - supervisor terminaciones - 1024139', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['ORTIZ, MANUEL - maestro carpintero - 729908', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['PACHECO, FABIAN - supervisor de post venta - 998027', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['PACHECO, BETZABETH - jornal aseo - 225001', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['PEREZ, MARIA - coordinador recursos humanos - 941293', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['PEREZ, PATRICIA - jornal aseo - 295877', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['PINDAVE, CORINA - asistente de servicio al cliente - 600001', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
 ['PINDAVE, OLIVIA - jornal aseo - 355761', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['PLACENCIA, FELIPE - encargado de servicio al cliente - 872776', 'POBLETE, JOSÉ',''],
 ['RETAMAL, KATHERINE - jornal sellador - 186883', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['SALAZAR, ESBERTO - maestro gasfiter - 701460', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['SALGADO, DIEGO - profesional de oficina técnica - 900001', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
 ['TOLOZA, PAULA - jornal aseo - 320019', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['VALDEBENITO, ALADINO - jornal varios - 414828', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['VALENZUELA, BAIRON - maestro carpintero - 756595', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
 ['VELOZO, VICTOR - jornal varios - 490783', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
-['VERGARA, JUAN - maestro carpintero - 708679', 'AREVALO, ARIEL - supervisor terminaciones - 800163','']
-                ]);
+['VERGARA, JUAN - maestro carpintero - 708679', 'AREVALO, ARIEL - supervisor terminaciones - 800163',''],
+['YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465', 'POBLETE, JOSÉ',''],
+['ZURITA, BASTIAN - encargado de bodega - 636678', 'YAÑEZ, FERNANDO - jefe de obra y post venta - 2246465',''],
+['ACEVEDO, SCARLET - jornal varios - 538856', '',''],
+['ARANEDA, VICTOR - pañolero - 680389', '',''],
+['BASUALTO, DANIXZA - profesional de opeaciones de sso - 0', '',''],
+['BOGGUEN, ALDO - maestro pintor - 923538', '',''],
+['CARVALLO, ARTURO - jornal aseo - 523865', '',''],
+['CUEVAS, HECTOR - maestro pintor - 966455', '',''],
+['ESCOBAR, GLADYS - ayudante de maestro - 641029', '',''],
+['FICA, LILIAN - ayudante maestro - 485626', '',''],
+['GARRIDO, CESAR - maestro gasfiter - 412461', '',''],
+['GODOY, GENESIS - jornal varios - 120001', '',''],
+['HERNANDEZ, CONSTANZA - jornal aseo - 120279', '',''],
+['HUENTEMAN, NIDIA - ayudante de maestro - 524857', '',''],
+['LEIVA, SALVADOR - maestro terminaciones - 1079059', '',''],
+['LEIVA, JORDAN - ayudante de maestro - 622553', '',''],
+['LOPEZ, MARCO -  - 0', '',''],
+['MILCHIO, PAULINA - ayudante de maestro - 680201', '',''],
+['PUEN, GONZALO - maestro pintor - 554333', '',''],
+['PUENTES, FRANCISCA - ayudante maestro - 524630', 'RIVERA, CONSTANZA',''],
+['RIVERAS, JAVIER - encargado de servicios al cliente - 1260458', 'SAAVEDRA, ISRAEL',''],
+['RIVERAS, JAVIER - jornal aseo - 87300', '',''],
+['SAAVEDRA, ISRAEL - maestro albañil - 822090', '',''],
+['SALAS, HECTOR - maestro terminaciones - 196861', '',''],
+['SORIA, JESICA - ayudante de maestro - 19662', '',''],
+['URRUTIA, JOSE - maestro primera de terminaciones - 946862', '',''],
+['VALENCIA, STEPHANIE - supervisor calidad inmobiliaria - 818220', 'RIVERAS, JAVIER',''],
+['VARGAS, VICTOR - maestro pintor - 866673', '',''],
+['VASQUEZ, MATIAS - supervisor calidad inmobiliaria - 797394', 'RIVERAS, JAVIER',''],
+['ZAMBRANO, JAVIER - maestro mantencion - 650000', '',''],
+['ZENTENO, JORGE - maestro pintor - 20587', '',''],
+['ARIAS, ENRIQUE - ayudante de maestro - 483334', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['BARRA, JORGE - maestro carpintero - 680307', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['BURDILES, EDUARDO - maestro electrico - 650000', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['ESPERGUEL, CARLOS - jornal varios - 520001', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['GARAY, MIGUEL - maestro pintor - 728896', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['ORTIZ, JESSICA - maestro gasfiter - 490854', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['PACHECO, ADA - maestro pintor - 728643', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['PARRA, SILVANA - jornal varios - 454334', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['PEDRAZA, JONATHAN - maestro pintor - 729776', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['PEREZ, ANDRES - maestro pintor - 731774', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['RIOS, GUSTAVO - ayudante maestro - 533499', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['SALGADO, JULIO - maestro albañil - 650000', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['SANCHEZ, RAQUEL - jornal aseo - 443614', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['VALENZUELA, ANA - jornal aseo - 438666', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['VILLALOBOS, CAMILA - jornal aseo - 62668', 'RIFFO, RODRIGO - supervisor terminaciones - 759935',''],
+['ITURRA, SEBASTIAN - asistente oficina tecnica - 829752', 'RIFFO, LUIS - administrador de contrato - 2790903',''],
+['LUENGO, RICARDO - profesional de calidad - 1066819', 'RIFFO, LUIS - administrador de contrato - 2790903',''],
+['RIFFO, RODRIGO - supervisor terminaciones - 759935', 'RIFFO, LUIS - administrador de contrato - 2790903',''],
+['SANHUEZA, DEBORA - encargado de recursos humanos - 0', 'RIFFO, LUIS - administrador de contrato - 2790903',''],
+['ARTEAGA, ALFREDO - asistente de servicio al cliente - 635516', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
+['GONZALEZ, ALVARO - asistente de servicio al cliente - 520638', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
+['SANHUEZA, NICOL - asistente de servicio al cliente - 706314', 'PLACENCIA, FELIPE - encargado de servicio al cliente - 872776',''],
+['RIFFO, LUIS - administrador de contrato - 2790903', 'PÉREZ DE ARCE, RAMÓN',''],
+['CIFUENTES, RENE - maestro albañil - 342926', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['DELGADO, MIGUEL - maestro carpintero - 733995', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['HERNANDEZ, DANIEL - maestro pintor - 214168', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['IBAÑEZ, RICARDO - maestro gasfiter - 745654', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['JOFRE, NICOLE - jornal aseo - 485491', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['LUNA, ANABELLE - jornal aseo - 479389', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['MARIMAN, PAULA - jornal aseo - 438668', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['MARTINEZ, MARIA - jornal aseo - 445162', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['ROA, MONICA - jornal sellador - 479389', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['RODRIGUEZ, THIARE - jornal aseo - 454334', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['SAEZ, GABRIEL - maestro terminaciones - 713427', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['TAPIA, MILENKO - maestro pintor - 745282', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['TAPIA, YERKO - maestro pintor - 750456', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638',''],
+['VALLEJOS, LUIS - maestro terminaciones - 727796', 'GONZALEZ, ALVARO - asistente de servicio al cliente - 520638','']
+                    ]);
 
-                // Create the chart.
-                var chart = new google.visualization.OrgChart(document.getElementById("chart_div"));
-                // Draw the chart, setting the allowHtml option to true for the tooltips.
-                chart.draw(data, { allowHtml: true }, { allowCollapse: true }, { color: "#FFFFFF" }, { size: "small" });
-            }
+                    // Create the chart.
+                    var chart = new google.visualization.OrgChart(document.getElementById("chart_div"));
+                    // Draw the chart, setting the allowHtml option to true for the tooltips.
+                    chart.draw(data, { allowHtml: true }, { allowCollapse: true }, { color: "#FFFFFF" }, { size: "small" });
+                }
         </script>
     </body>
 </html>

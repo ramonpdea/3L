@@ -3,6 +3,30 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
     <body>
+        <script>
+            function passWord() {
+                var testV = 1;
+                var pass1 = prompt("Please Enter Your Password", " ");
+                while (testV < 3) {
+                    if (!pass1) history.go(-1);
+                    if (pass1.toLowerCase() == "3Lsueldos") {
+                        alert("You Got it Right!");
+                        window.open("organigrama2.html");
+                        break;
+                    }
+                    testV += 1;
+                    var pass1 = prompt("Access Denied - Password Incorrect, Please Try Again.", "Password");
+                }
+                if ((pass1.toLowerCase() != "password") & (testV == 3)) history.go(-1);
+                return " ";
+            }
+        </script>
+        <center>
+            <form>
+                <input type="button" value="Enter Protected Area" onClick="passWord()" />
+            </form>
+        </center>
+
         <p class="text-center small">Revisa los <a href="organigrama.html" class="link-light">organigramas</a></p>
         <p class="text-center small">Revisa el <a href="infografia.html" class="link-light">estado de avance de los proyectos</a></p>
     </body>
